@@ -1,0 +1,63 @@
+---
+import MainLayout from "@/layouts/MainLayout.astro";
+import CardSmall from "@components/ui/cards/CardSmall.astro";
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import { SITE } from "@data/constants";
+const image: CollectionEntry<"images">[] = (
+  await getCollection("images")
+).sort(
+  (a: CollectionEntry<"images">, b: CollectionEntry<"images">) =>
+    a.data.id - b.data.id,
+);
+const title: string = "Gallery";
+const pageTitle: string = `Gallery | ${SITE.title}`;
+---
+
+<MainLayout
+  title={pageTitle}
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://orchidfresh.ae",
+    "url": "https://orchidfresh.ae",
+    "name": "Orchid Fresh Dubai | Freshness Guarenteed",
+    "description": "Explore our vibrant produce section, where freshness is guaranteed. From crisp, just-picked vegetables to juicy, ripe fruits, each item is carefully selected to bring you the best flavors and nutrients nature has to offer.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "url": "https://orchidfresh.ae",
+      "name": "Orchid Fresh",
+      "description": "Welcome to Orchid fresh Dubai, where freshness meets quality."
+    },
+    "inLanguage": "en-US"
+  }}
+>
+  <div
+    class="mx-auto max-w-[85rem] px-4 py-1 sm:px-6 lg:px-8 lg:py-8 2xl:max-w-full"
+  >
+    <div class="w-full text-center mb-8 ">
+     
+        <h1
+          class="text-balance text-2xl font-bold text-center tracking-tight text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight"
+        >
+          {title}
+        </h1>
+     
+    
+     
+    </div>
+
+    <section class="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
+      {
+        image.map((img, index) => {
+          
+         {
+            return <CardSmall image={img} />;
+          
+          }
+        })
+      }
+    </section>
+  </div>
+  
+</MainLayout>

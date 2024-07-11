@@ -1,0 +1,147 @@
+---
+import MainLayout from "@/layouts/MainLayout.astro";
+import HeroSectionAlt from "@components/sections/landing/HeroSectionAlt.astro";
+import ClientsSection from "@components/sections/landing/ClientsSection.astro";
+import Features2 from "@components/Features2";
+import FeaturesNavs from "@components/sections/features/FeaturesNavs.astro";
+import TestimonialsSection from "@components/sections/testimonials/TestimonialsSection.astro";
+import FAQ from "@components/sections/FAQ.astro";
+import heroImage from "@images/hero.png";
+import FeatureComponents from "@components/FeatureComponents.astro";
+import faqs from "@data/faqs.json";
+import lucky from "@images/lucky.jpeg";
+import prettylook from "@images/prettylook.jpeg";
+import shoppers from "@images/shoppersplaza2.jpeg";
+import tools from "@images/rash6.jpeg";
+import kismath from "@images/abaya5.jpeg";
+import HeroSectionfront from "@/components/sections/landing/HeroSectionfront";
+import BackgroundImage from '@components/BackGroundImage.astro';
+import Slider from "@/components/Slider";
+import BackGroundImage from "@components/BackGroundImage.astro";
+
+---
+
+<MainLayout>
+
+  <HeroSectionfront client:load
+    title="PRAYAG AURORA"
+    subTitle="Excellence is not just a goal.it's our standard. With every service we provide, our unwavering commitment shines through, ensuring your experience with us is nothing short of exceptional."
+    src={heroImage}
+    alt="Dubai best supermarket with reasonable rate"
+     
+  />
+
+  <!-- <ClientsSection
+    title="Customer Satisfaction"
+    subTitle="We prioritize your satisfaction,ensuring every shopping experience exceeds your expectations."
+   
+    withReview={true}
+    avatars={avatarSrcs}
+    rating=`<span class="font-bold">4.8</span> / 5`
+    starCount={4}
+    reviews=`From Over <span class="font-bold">12.8k</span> Reviews`
+  />  -->
+  <!-- <Slider client:load /> -->
+  <!-- <FeatureComponents/> -->
+  <Features2 client:load/>
+  <!-- <FeaturesNavs
+    title=`Our  <span class="text-blue dark:text-yellow-400">Branches </span>and locations.`
+    tabs={[
+      {
+        heading: "Orchid Fresh Super Market",
+        
+        content:
+          "Deira - Dubai - United Arab Emirates",
+        mobile: "+971527937634",
+        svg: "github",
+        src: tools,
+        alt: "Orchid fresh supermarket",
+        first: true,
+      },
+      {
+        heading: "Kismath Abaya Nisar Trading",
+        content:
+          "RK Brothers Building, Al Souq Al Kabeer, Bur Dubai, Dubai",
+          mobile: "+971504507937",
+        svg: "github",
+        src: kismath,
+        alt: "Abaya trading trading company Dubai",
+        second: true,
+      },
+      {
+        heading: "Pretty look perfumes",
+        content:
+          "Al Souq Al Kabeer - Dubai - United Arab Emirates.",
+          mobile: "+971582347789",
+        svg: "github",
+        src: prettylook,
+        alt: "Best perfumes in Dubai Pretty look",
+      },
+      {
+        heading: "Shoppers plaza",
+        content:
+          "Meena Bazar - 22 Al Hisin St - Bur Dubai - Al Fahidi - Dubai - United Arab Emirates",
+          mobile: "+971565353388",
+        svg: "github",
+        src: shoppers,
+        alt: "Wide range of leather bags",
+      },
+      {
+        heading: "Lucky Village Trading",
+        content:
+          "Al Souq Al Kabeer, Bur Dubai, Dubai",
+          mobile: "+971559648858",
+        svg: "github",
+        src: lucky,
+        alt: "Dubai leather trading company",
+
+      },
+    ]}
+  /> -->
+
+  <TestimonialsSection
+    title="Welcome to startup Garage!"
+    subTitle="Where innovation meets execution"
+    ;
+    testimonials={[
+      {
+        content:
+          "Working with Prayag aurora was one of the best decisions we made for our new venture. Their deep understanding of the buisiness sector, coupled with their strategic advice, enabled us to identify and capitalize on key opportunities. They provided us with customized solutions that perfectly aligned with our goals. Prayag Aurora's support has been invaluable, and their dedication to helping new businesses succeed is truly commendable.",
+        author: "Radhakrishnan",
+        role: "Chief Operating Officer | ",
+      },
+    ]}
+    statistics={[
+      {
+        count: 70,
+        description:
+          "customers",
+      },
+      {
+        count: 5,
+        description:
+          "Branches",
+      },
+      {
+        count: 10,
+        description:
+          "Locations",
+      },
+      {
+        count: 100,
+        description: "Employees",
+      },
+    ]}
+  />
+
+ 
+
+  <FAQ title="Frequently<br />asked questions" faqs={faqs} />
+
+  <HeroSectionAlt
+    title="Shaping the Future of Business"
+    subTitle="Contact us Now"
+    url="/contact"
+  />
+
+</MainLayout>

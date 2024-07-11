@@ -1,0 +1,82 @@
+---
+import MainLayout from "@/layouts/MainLayout.astro";
+import CardBlog from "@components/ui/cards/CardBlog.astro";
+import CardBlogRecent from "@components/ui/cards/CardBlogRecent.astro";
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import { SITE } from "@data/constants";
+
+
+
+const englishBlogEntries = await getCollection("blog", ({ id }) => {
+  return id.startsWith("en/");
+});
+const blogPosts: CollectionEntry<"blog">[] = englishBlogEntries.sort(
+  (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
+    b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+const mostRecentPost: CollectionEntry<"blog"> = blogPosts[0];
+const otherPosts: CollectionEntry<"blog">[] = blogPosts.slice(1);
+const title: string = "Orchid fresh Supermarket - Your One-Stop Shop for Quality Groceries";
+const subTitle: string =
+  "Welcome to Orchid fresh Supermarket, where convenience meets quality. Discover a vast selection of fresh produce, pantry staples, and household essentials all under one roof. Whether you're stocking up for the week or looking for specialty items, our friendly staff and competitive prices ensure a pleasant shopping experience every time. Explore our online catalog, enjoy seamless delivery options, and let us bring the best of the supermarket directly to your doorstep. Orchid fresh Supermarket - Freshness Guaranteed, Convenience Delivered";
+  "Stay up-to-date with the offers and news. ";
+const pageTitle: string = `Blog | ${SITE.title}`;
+---
+
+<MainLayout
+  title={pageTitle}
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://orchidfresh.ae/blog",
+    url: "https://orchidfresh.ae/blog",
+    name: "Blog | Orchidfresh",
+    description:
+      "Orchid Fresh Supermarket: A vibrant oasis of freshness, offering a wide array of quality produce, artisanal delights, and community events.",
+    isPartOf: {
+      "@type": "WebSite",
+      url: "https://orchidfresh.ae",
+      name: "OrchidFresh",
+      description:
+        "Orchid Fresh Supermarket: A vibrant oasis of freshness, offering a wide array of quality produce, artisanal delights, and community events.",
+    },
+    inLanguage: "en-US",
+  }}
+>
+  <section
+    class="mx-auto max-w-[85rem] space-y-8 px-4 pt-16 sm:px-6 lg:px-8 2xl:max-w-full"
+  >
+    <!--Page header-->
+    <div class="mx-auto max-w-3xl text-left sm:text-center">
+      <h1
+        class="block text-balance text-4xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:text-5xl lg:text-6xl"
+      >
+        {title}
+      </h1>
+
+      <p
+        class="mt-4 text-pretty text-lg text-neutral-600 dark:text-neutral-400"
+      >
+        {subTitle}
+      </p>
+    </div>
+  </section>
+  <section
+  class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
+>
+  <CardBlogRecent blogEntry={mostRecentPost} />
+</section>
+  <section
+    class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
+  >
+    <!--Blog posts grid-->
+    <div class="grid gap-6 lg:grid-cols-2">
+      {otherPosts.map((blogEntry) => <CardBlog blogEntry={blogEntry} />)}
+    </div>
+  </section>
+  <!--Most recent blog post-->
+  
+
+
+</MainLayout>

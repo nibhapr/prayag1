@@ -1,0 +1,89 @@
+---
+import Meta from "@components/Meta.astro";
+import Navbar from "@components/sections/Navbar.astro";
+import FooterSection from "@components/sections/FooterSection.astro";
+import Whatsapp from "@/components/Whatsapp";
+const { title, description,structuredData,lang = "en", ogTitle, ogDescription } = Astro.props as Props;
+interface Props {
+  title?: string;
+  description?: string;
+  meta?: string;
+  structuredData?: object;
+  lang?: string;
+  ogTitle?: string;
+  ogDescription?: string
+  
+}
+---
+<html lang={lang} class="lenis lenis-smooth scroll-pt-16">
+  <head>
+ <Meta meta={description} ogTitle={ogTitle} ogDescription={ogDescription} title={title}
+ structuredData={structuredData} />
+ 
+    <script is:inline>
+    
+      if (
+        localStorage.getItem("hs_theme") === "dark" ||
+        (!("hs_theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
+    <script is:inline src="/scripts/vendor/lenis/lenis.js"></script>
+    <script is:inline>
+      const lenis = new Lenis();
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+
+      requestAnimationFrame(raf);
+    </script>
+  </head>
+  <body class="bg-white selection:bg-yellow-400 selection:text-neutral-700 dark:bg-neutral-800 is-preload">
+    <div id="wrapper"></div>
+    <div class="mx-auto max-w-screen-8xl px-2 sm:px-2 lg:px-4">
+      <Navbar />
+      <main>
+        <slot />
+      </main>
+    </div>
+    <FooterSection />
+    <Whatsapp client:load />
+    <style>
+      /* CSS rules for the page scrollbar and scrolling experience with lenis library */
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      html.lenis,
+      html.lenis body {
+        height: auto;
+      }
+
+      .lenis.lenis-smooth {
+        scroll-behavior: auto !important;
+      }
+
+      .lenis.lenis-smooth [data-lenis-prevent] {
+        overscroll-behavior: contain;
+      }
+
+      .lenis.lenis-stopped {
+        overflow: hidden;
+      }
+
+      .lenis.lenis-scrolling iframe {
+        pointer-events: none;
+      }
+    </style>
+  </body>
+</html>

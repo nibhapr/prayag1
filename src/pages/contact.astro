@@ -1,0 +1,31 @@
+---
+import MainLayout from "@/layouts/MainLayout.astro";
+import ContactSection from "@components/sections/ContactSection.astro";
+import { SITE } from "@data/constants";
+const pageTitle: string = `Contact | ${SITE.title}`;
+const description: string = "Discover luxury and tradition with our diverse abaya selection. As UAE's top distributor, we blend heritage and modernity in every piece for every occasion"
+const ogTitle: string = "Kismath Abaya.Best Abaya dealer"
+const ogDescription: string = "Discover luxury and tradition with our diverse abaya selection. As UAE's top distributor, we blend heritage and modernity in every piece for every occasion"
+---
+<MainLayout
+  title={pageTitle}, description={description}, ogTitle={ogTitle}, ogDescription= {ogDescription}
+    structuredData={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://orchidfresh.ae/contact",
+    "url": "https://orchidfresh.ae/contact",
+    "name": "Contact Us | Orchid fresh Dubai",
+    "description":
+      "Discover luxury and tradition with our diverse abaya selection. As UAE's top distributor, we blend heritage and modernity in every piece for every occasion",
+    "isPartOf": {
+      "@type": "WebSite",
+      "url": "https://orchidfresh.ae",
+      "name": "Kismath Abaya Dubai",
+      "description":
+        "Top designer abayas from Dubai, UAE—where tradition meets innovation in every exquisite piece. Explore our collection for timeless elegance.",
+    },
+    "inLanguage": "en-US"
+  }}
+>
+  <ContactSection />
+</MainLayout>

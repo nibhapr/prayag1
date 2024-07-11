@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+.reset-tw,
+.reset-tw * {
+    all: revert !important;
+}
+
+.no-tailwind{
+    all: initial;
+  }
+  
+  .no-tailwind > * {
+    all: revert;
+  }

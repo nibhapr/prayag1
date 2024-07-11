@@ -1,0 +1,33 @@
+{
+  "subTitle": "Ask us anything about our brand and products, and get factual responses.",
+  "faqs": [
+    {
+      "question": "How can Prayag Aurora help my new venture succeed?",
+      "answer": "We provide tailored business consulting and mentorship to guide your venture through its early stages. Our services include strategic planning, resource access, and hands-on project execution to ensure your business is set up for success. Additionally, we offer co-working spaces and workshops to foster collaboration and innovation."
+    },
+    {
+      "question": "What kind of legal and financial advice does Prayag Aurora provide?",
+      "answer": "Our network includes experienced legal and financial advisors who can assist with company formation, compliance, contracts, financial planning, and funding strategies. We ensure you have the necessary guidance to navigate the legal and financial aspects of your business"
+    },
+    {
+      "question": "Can Prayag Aurora assist with setting up my office and machinery?",
+      "answer": "Yes, we offer complete office setup services, including the supply of necessary machinery and equipment. Whether you need a basic office setup or specialized machinery for your operations, we can provide and install everything you need to get started"
+    },
+    {
+      "question": "What are the benefits of using Prayag Aurora's co-working space?",
+      "answer": "Our co-working space offers a dynamic and collaborative environment designed to support early-stage businesses. Benefits include flexible workspace options, networking opportunities, access to resources, and a vibrant community of like-minded entrepreneurs."
+    },
+    {
+      "question": "How do Prayag Aurora's workshops and collaborative environments work?",
+      "answer": "We regularly organize workshops and collaborative events to foster learning and innovation among early-stage businesses. These events cover a range of topics, from business development and marketing to technology and product development. Participants gain valuable insights and have the opportunity to network and collaborate with other entrepreneurs."
+    },
+    {
+      "question": "How can I get started with Prayag Aurora?",
+      "answer": "Getting started is easy! Contact us through our website or visit our office to discuss your needs. Our team will work with you to understand your business goals and develop a customized plan to support your venture"
+    },
+    {
+      "question": "What industries does Prayag Aurora specialize in?",
+      "answer": "We work with a diverse range of industries, including technology, education, manufacturing, and more. Our expertise and resources are adaptable to various business sectors, allowing us to provide tailored support for your specific industry needs."
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+---
+
+
+interface Props {
+  imageUrl: string;
+  className?: string;
+  children?: any;
+}
+
+const { imageUrl, className, children } = Astro.props;
+---
+
+<section class={`bg-cover bg-center ${className}`} style={`background-image: url('${imageUrl}')`}>
+  {children}
+</section>

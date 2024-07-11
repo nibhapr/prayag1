@@ -1,0 +1,31 @@
+---
+import ReviewComponent from "@components/ui/blocks/ReviewComponent.astro";
+const {
+ 
+  withReview,
+  avatars,
+  starCount,
+  rating,
+  reviews, 
+ } = Astro.props;
+interface Props {
+  
+  withReview?: boolean;
+  avatars?: Array<string>;
+  starCount?: number;
+  rating?: string;
+  reviews?: string;
+}
+---
+
+
+
+  
+  
+ 
+  { withReview ? (
+    <ReviewComponent avatars={avatars} starCount={starCount} rating={rating} reviews={reviews} />
+    ) : "" }
+
+
+

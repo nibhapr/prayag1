@@ -1,0 +1,196 @@
+---
+// Import necessary components
+import MainLayout from "@/layouts/MainLayout.astro";
+import MainSection from "@components/ui/blocks/MainSection.astro";
+import LeftSection from "@components/ui/blocks/LeftSection.astro";
+import RightSection from "@components/ui/blocks/RightSection.astro";
+import FeaturesStats from "@components/sections/features/FeaturesStats.astro";
+
+// Import necessary images
+import blueprints from "@images/abaya6.jpeg";
+import personWorking from "@images/abaya5.jpeg";
+import beforeAfter from "@images/super3.jpeg";
+import shopppersplaza from "@images/shoppersplaza3.jpeg";
+import shoppersplaza1 from "@images/shoppersplaza2.jpeg";
+import perttylook from "@images/prettylook.jpeg";
+import perttylook1 from "@images/prettylook1.jpeg";
+import progressBuilding from "@images/lucky.jpeg";
+import underConstruction from "@images/lucky1.jpeg";
+import { SITE } from "@data/constants";
+
+interface Article {
+  isRightSection: boolean;
+  title: string;
+  subTitle: string;
+  btnExists?: boolean;
+  btnTitle?: string;
+  btnURL?: string;
+  single?: boolean;
+  img?: any;
+  imgAlt?: string;
+  imgOne?: any;
+  imgOneAlt?: string;
+  imgTwo?: any;
+  imgTwoAlt?: string;
+}
+
+const articles: Article[] = [
+  {
+    isRightSection: true,
+    title: "Welcome to Abaya Dubai",
+    subTitle:
+      "Each abaya in our collection is meticulously handcrafted by skilled artisans, using only the finest quality fabrics sourced from around the world. From flowing chiffons to luxurious silks, our materials are carefully selected to ensure both comfort and style.Our designs seamlessly blend traditional craftsmanship with modern aesthetics, offering a range of styles to suit every preference. Whether you prefer classic black abayas adorned with intricate embroidery, or contemporary designs featuring subtle embellishments, we have something to cater to your unique taste.",
+    single: false,
+    imgOne: blueprints,
+    imgOneAlt: "Blueprints and digital tablet with construction plans.",
+    imgTwo: personWorking,
+    imgTwoAlt: "Person working in the office",
+    btnExists: true,
+    btnTitle: "Location",
+    btnURL: "https://2gis.ae/dubai/directions/points/%7C55.295805%2C25.261099%3B13933621232533568"
+  },
+  {
+    isRightSection: false,
+    title: "Orchid Fresh Supermarket",
+    subTitle:"At Orchid Fresh Supermarket, we take pride in offering a diverse selection of high-quality products sourced from trusted suppliers around the globe. From fresh produce to gourmet delicacies, every item on our shelves is carefully curated to meet the needs and preferences of our discerning customers. We strive to exceed your expectations at every turn, ensuring that your shopping experience is both enjoyable and hassle-free",
+    img: beforeAfter,
+    imgAlt: "Construction site before and after",
+    btnExists: true,
+    btnTitle: "Location",
+    btnURL: "https://www.google.com/search?q=orchid+fresh+supermarket&sca_esv=af0b90c6614b7d36&sca_upv=1&sxsrf=ADLYWILgJc0GXqxPa-rNJIuufnh6EM3DoQ%3A1718175721203&ei=6UdpZpb7C_mJjuMPwLeZ6A8&gs_ssp=eJwFwUEKgCAQAEC6Bt07eunsmpnoE_qFuJohUqwWPr-ZceInFyJ3-aXmCwx2gS6DigpBGhDaGa0tdCWFQ7ejAaU39Osx3-TThSxSqInV9wlUHOXQfqoQGNo&oq=orchid+f&gs_lp=Egxnd3Mtd2l6LXNlcnAiCG9yY2hpZCBmKgIIADIQEC4YgAQYxwEYJxiKBRivATIIEC4YgAQYsQMyEBAuGIAEGBQYhwIYxwEYrwEyBRAAGIAEMgUQABiABDILEC4YgAQYxwEYrwEyBRAAGIAEMggQABiABBixAzIFEAAYgAQyCxAuGIAEGMcBGK8BMh0QLhiABBjHARiKBRivARiXBRjcBBjeBBjgBNgBAUj-F1AAWNsOcAB4AJABAJgBvwGgAc8JqgEDMC44uAEByAEA-AEBmAIIoALzCcICBBAjGCfCAgoQIxiABBgnGIoFwgIREC4YgAQYkQIYxwEYigUYrwHCAgsQABiABBiRAhiKBcICERAuGIAEGLEDGNEDGIMBGMcBwgIFEC4YgATCAgsQLhiABBixAxjUAsICChAAGIAEGEMYigXCAhcQLhiABBiRAhjHARiYBRiZBRiKBRivAcICDhAuGIAEGLEDGIMBGIoFwgIQEC4YgAQYQxjHARiKBRivAcICDRAAGIAEGLEDGEMYigXCAgsQABiABBixAxiDAcICGhAuGIAEGJECGLEDGMcBGJgFGJkFGIoFGK8BmAMAugYGCAEQARgUkgcDMC44oAfb1AE&sclient=gws-wiz-serp",
+  },
+  {
+    isRightSection: true,
+    title: "Welcome to shoppers Plaza",
+    subTitle:
+      "Effective project management is at the heart of any successful build. ScrewFast provides thorough planning and robust management services that keep your project on time and within budget. Let us handle the complexities of workflow coordination, resource allocation, and stakeholder communication while you focus on your vision.",
+    single: false,
+    imgOne: shopppersplaza,
+    imgOneAlt: "Construction workers orchestrating a project",
+    imgTwo: shoppersplaza1,
+    imgTwoAlt: "Aerial view of managed construction",
+    btnExists:true,
+      btnTitle: "Location",
+      btnURL: "https://www.google.com/search?q=shoppers+plaza+dubai&sca_esv=af0b90c6614b7d36&sca_upv=1&sxsrf=ADLYWILSQTmSGgoIIabXH7gn6De-sO0Izg%3A1718175678482&ei=vkdpZuHwHM_b4-EPm7Gt4Ac&oq=sho&gs_lp=Egxnd3Mtd2l6LXNlcnAiA3NobyoCCAAyBBAjGCcyChAjGIAEGCcYigUyBBAjGCcyCxAAGIAEGJECGIoFMhEQLhiABBiRAhjRAxjHARiKBTIKEAAYgAQYQxiKBTIKEAAYgAQYQxiKBTIKEAAYgAQYQxiKBTIWEC4YgAQYsQMY0QMYgwEYFBiHAhjHATILEAAYgAQYsQMYgwFIog5QAFj1AnAAeAGQAQCYAZEBoAGTA6oBAzAuM7gBAcgBAPgBAZgCA6ACmwPCAhAQLhiABBjRAxhDGMcBGIoFwgIOEC4YgAQYsQMYgwEYigXCAhEQLhiABBixAxjRAxiDARjHAcICChAuGIAEGEMYigWYAwCSBwMwLjOgB-o6&sclient=gws-wiz-serp&lqi=ChRzaG9wcGVycyBwbGF6YSBkdWJhaUim7eyntbqAgAhaIBAAEAEYABgBGAIiFHNob3BwZXJzIHBsYXphIGR1YmFpkgENcGVyZnVtZV9zdG9yZaoBURABKhIiDnNob3BwZXJzIHBsYXphKAAyHxABIhuHEKcSqRIlz5AYvluiTMiI1XsFc1Ss9Ee1YXMyGBACIhRzaG9wcGVycyBwbGF6YSBkdWJhaQ#rlimm=7496732013858630629"
+
+  },
+  {
+    isRightSection: true,
+    title: "Celebrate Your Signature Scent: Pretty Look Perfumes Distributors",
+    subTitle:
+      "Elevate your fragrance game with Pretty Look Perfumes. As distributors of luxury perfumes, we offer a curated selection of iconic brands and exclusive blends. Immerse yourself in a world of sophistication and style.",
+    single: false,
+    imgOne: perttylook,
+    imgOneAlt:
+      "Man in orange and black vest wearing white helmet holding yellow and black power tool",
+    imgTwo: perttylook1 ,
+    imgTwoAlt: "Brown and gray building under construction",
+
+      btnExists:true,
+      btnTitle: "Location",
+      btnURL: "https://www.google.com/search?q=pretty+look+perfumes+dubai&sca_esv=af0b90c6614b7d36&sca_upv=1&sxsrf=ADLYWILKvAMz6Vw9J0CIn3YelDD0MvQvNg%3A1718175536957&ei=MEdpZt6KOpmq4-EP-6-HkAo&oq=pretty+&gs_lp=Egxnd3Mtd2l6LXNlcnAiB3ByZXR0eSAqAggAMgQQIxgnMgQQIxgnMgoQLhiABBhDGIoFMgoQABiABBhDGIoFMhAQLhiABBixAxhDGIMBGIoFMhMQLhiABBixAxjRAxhDGMcBGIoFMgoQABiABBhDGIoFMgoQABiABBhDGIoFMhAQLhiABBixAxhDGIMBGIoFMgoQLhiABBhDGIoFSN1BUABY1wtwAHgAkAEAmAG6AaABmgeqAQMwLje4AQHIAQD4AQGYAgegAq0HwgILEAAYgAQYkQIYigXCAgsQLhiABBiRAhiKBcICDhAuGIAEGLEDGIMBGIoFwgILEAAYgAQYsQMYgwHCAgUQLhiABMICEBAuGIAEGEMYxwEYigUYrwHCAgUQABiABMICDRAuGIAEGLEDGEMYigWYAwCSBwMwLjegB49y&sclient=gws-wiz-serp&lqi=ChpwcmV0dHkgbG9vayBwZXJmdW1lcyBkdWJhaVocIhpwcmV0dHkgbG9vayBwZXJmdW1lcyBkdWJhaZIBDXBlcmZ1bWVfc3RvcmWqAWoKCy9nLzEyMmRrdGhnEAEqGCIUcHJldHR5IGxvb2sgcGVyZnVtZXMoADIfEAEiG3-QvhRCjAOZ_tNRAf17UUCGA6980wzedGsuMTIeEAIiGnByZXR0eSBsb29rIHBlcmZ1bWVzIGR1YmFp#rlimm=3602348943603616086"
+
+  },
+  {
+    isRightSection: true,
+    title: "Lucky Village Trading ",
+    subTitle:
+      "Explore our collection of finely crafted leather accessories and lucky trading bags. Elevate your style with our premium range of handbags, wallets, and more. Shop now and discover the perfect blend of quality, style, and luck!",
+    single: false,
+    imgOne: progressBuilding,
+    imgOneAlt: "In progress building structure",
+    imgTwo: underConstruction,
+    imgTwoAlt: "Brown and gray building under construction",
+    btnExists: true,
+    btnTitle: "Location",
+    btnURL: "https://www.google.com/search?q=Lucky+village+trading+dubai&sca_esv=af0b90c6614b7d36&sca_upv=1&sxsrf=ADLYWILgV6WCdg2bGVH9BrhWC9UVNboLtw%3A1718175515360&ei=G0dpZsTCFer04-EP_ZmVqAU&ved=0ahUKEwiEvITKvtWGAxVq-jgGHf1MBVUQ4dUDCBA&uact=5&oq=Lucky+village+trading+dubai&gs_lp=Egxnd3Mtd2l6LXNlcnAiG0x1Y2t5IHZpbGxhZ2UgdHJhZGluZyBkdWJhaTIFECEYnwVI5FRQAFicUnAAeAGQAQCYAbkBoAHHHaoBBDAuMje4AQPIAQD4AQGYAhugAvMdwgIEECMYJ8ICChAuGIAEGEMYigXCAgsQABiABBiRAhiKBcICCxAAGIAEGLEDGIMBwgIKECMYgAQYJxiKBcICDhAAGIAEGJECGLEDGIoFwgIKEAAYgAQYQxiKBcICEBAuGIAEGEMYxwEYigUYrwHCAhMQLhiABBixAxjRAxhDGMcBGIoFwgIOEC4YgAQYsQMYxwEYrwHCAhAQLhiABBixAxhDGIMBGIoFwgIIEC4YgAQYsQPCAgsQLhiABBixAxiDAcICFhAuGIAEGLEDGNEDGEMYgwEYxwEYigXCAg0QABiABBixAxhDGIoFwgIOEC4YgAQYsQMYgwEYigXCAgUQABiABMICCxAuGIAEGMcBGK8BwgIFEC4YgATCAgsQLhiABBjRAxjHAcICBxAuGIAEGArCAgcQABiABBgKwgIREC4YgAQYxwEYmAUYmgUYrwHCAhAQLhiABBgUGIcCGMcBGK8BwgIGEAAYFhgewgILEAAYgAQYhgMYigXCAggQABiABBiiBMICBxAhGKABGArCAgUQIRigAcICBxAjGLACGCfCAgQQIRgVmAMA4gMFEgExIECSBwQwLjI3oAe96gE&sclient=gws-wiz-serp",
+  },
+];
+
+const pageTitle: string = `Services | ${SITE.title}`;
+---
+
+<MainLayout
+  title={pageTitle}
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://screwfast.uk/services",
+    "url": "https://screwfast.uk/services",
+    "name": "Expert Consultation Services | ScrewFast",
+    "description": "Uniting expertise with your vision, ScrewFast provides exceptional service and comprehensive solutions in the hardware and construction industry, from consultation to project completion.",
+    "isPartOf": {
+        "@type": "WebSite",
+        "url": "https://screwfast.uk",
+        "name": "ScrewFast",
+        "description": "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs."
+    },
+    "inLanguage": "en-US"
+  }}
+>
+  <!--MainSection is the introductory section of the page, it also contains a CTA button-->
+  <MainSection
+    title="Welcome to Orchid Group of Companys"
+    subTitle="Discover the difference with our service. With a commitment to quality, affordability, and customer satisfaction, we strive to exceed your expectations at every turn. Join us in redefining the shopping experience"
+    btnExists={true}
+    btnTitle="Contact Us"
+    btnURL="#"
+  />
+  <!-- RightSection and LeftSection contain details about various services along with pertinent imagery.
+  They alternate for variety in design.
+  The 'btnExists' property is used to toggle the display of a button in these sections.
+  When btnExists={true}, a button is displayed.
+  This can be used to link to more detailed information or related resources.
+  RightSection can also conditionally render one or two images based on the 'single' property.
+  If 'single' is true, it displays one image, otherwise it displays two.
+  -->
+  {
+    articles.map(article => {
+      return article.isRightSection ? (
+        <RightSection
+          title={article.title}
+          subTitle={article.subTitle}
+          single={article.single}
+          imgOne={article.imgOne}
+          imgOneAlt={article.imgOneAlt}
+          imgTwo={article.imgTwo}
+          imgTwoAlt={article.imgTwoAlt}
+          btnExists={article.btnExists}
+          btnTitle={article.btnTitle}
+          btnURL={article.btnURL}
+        />
+      ) : (
+        <LeftSection
+          title={article.title}
+          subTitle={article.subTitle}
+          img={article.img}
+          imgAlt={article.imgAlt}
+          btnExists={article.btnExists}
+          btnTitle={article.btnTitle}
+          btnURL={article.btnURL}
+        />
+      );
+    })
+  }
+  <!--FeaturesStats section showcases essential stats valuable to users-->
+  <FeaturesStats
+    title="By the Numbers"
+    subTitle="Learn more about Orchid Group Of Supermarket and our commitment to providing quality products and exceptional service to our customers. Discover our story, mission, and values, and see why we're the preferred choice for shoppers everywhere."
+    mainStatTitle="1M"
+    mainStatSubTitle="Happy customers"
+    stats={[
+      {
+        stat: "100+",
+        description: "Employees",
+      },
+      {
+        stat: "5+",
+        description: "Branches",
+      },
+      {
+        stat: "10+",
+        description: "Locations",
+      },
+    ]}
+  />
+</MainLayout>
