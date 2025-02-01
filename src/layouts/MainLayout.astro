@@ -3,7 +3,14 @@ import Meta from "@components/Meta.astro";
 import Navbar from "@components/sections/Navbar.astro";
 import FooterSection from "@components/sections/FooterSection.astro";
 import Whatsapp from "@/components/Whatsapp";
-const { title, description,structuredData,lang = "en", ogTitle, ogDescription } = Astro.props as Props;
+const {
+  title,
+  description,
+  structuredData,
+  lang = "en",
+  ogTitle,
+  ogDescription,
+} = Astro.props as Props;
 interface Props {
   title?: string;
   description?: string;
@@ -11,17 +18,21 @@ interface Props {
   structuredData?: object;
   lang?: string;
   ogTitle?: string;
-  ogDescription?: string
-  
+  ogDescription?: string;
 }
 ---
+
 <html lang={lang} class="lenis lenis-smooth scroll-pt-16">
   <head>
- <Meta meta={description} ogTitle={ogTitle} ogDescription={ogDescription} title={title}
- structuredData={structuredData} />
- 
+    <Meta
+      meta={description}
+      ogTitle={ogTitle}
+      ogDescription={ogDescription}
+      title={title}
+      structuredData={structuredData}
+    />
+
     <script is:inline>
-    
       if (
         localStorage.getItem("hs_theme") === "dark" ||
         (!("hs_theme" in localStorage) &&
@@ -43,14 +54,13 @@ interface Props {
       requestAnimationFrame(raf);
     </script>
   </head>
-  <body class="bg-white selection:bg-yellow-400 selection:text-neutral-700 dark:bg-neutral-800 is-preload">
-    <div id="wrapper"></div>
-    <div class="mx-auto max-w-screen-8xl px-2 sm:px-2 lg:px-4">
-      <Navbar />
-      <main>
-        <slot />
-      </main>
-    </div>
+  <body
+    class="is-preload bg-white selection:bg-yellow-400 selection:text-neutral-700 dark:bg-neutral-800"
+  >
+    <Navbar />
+    <main>
+      <slot />
+    </main>
     <FooterSection />
     <Whatsapp client:load />
     <style>
